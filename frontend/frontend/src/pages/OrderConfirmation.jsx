@@ -26,7 +26,7 @@ const OrderConfirmation = () => (
           Your payment was successful. We've sent a confirmation email with your order details.
         </p>
         <Link
-          to="/"
+          to="/home"
           className="inline-block px-6 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded-full transition duration-300"
         >
           Continue Shopping

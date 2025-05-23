@@ -7,17 +7,22 @@ import { MdDelete } from "react-icons/md";
 import { HiDocumentCurrencyRupee } from "react-icons/hi2";
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 const CartData=()=>{
     const Product= useSelector(state=>state.myca.cart);
     console.log(Product);
     const navigate = useNavigate();
     const dispatch= useDispatch();
     let totalAmount=0;
+    let sno=0;
     const ans=Product.map((key)=>{
+        
         totalAmount+=key.price * key.qnty;
+          sno=sno+1
         return(
             <>
                <tr>
+                <td>{sno}</td>
                <td>
                 <img src={key.image} width="80" height="60" />
                 
@@ -50,17 +55,16 @@ const CartData=()=>{
     })
  return(
         <>
+        <div className="mt-20">
           <h1 align="center"> My Cart </h1>
         <h4 align="center" style={{color:"green", fontWeight:"bold"}}>
-        < HiDocumentCurrencyRupee /> : {totalAmount}</h4> 
+        < HiDocumentCurrencyRupee className="relative left-185 top-7" /> : {totalAmount}</h4> 
 
-        <h1 align="right">
-        <Button variant="warning" onClick={()=>{navigate("/checkout")}}>CheckOut</Button>
-            </h1>
+      
           <Table striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
+          <th>Sno</th>
           <th>Product Name</th>
           <th>Desciption</th>
           <th>Price</th>
@@ -75,7 +79,10 @@ const CartData=()=>{
          {ans}
         </tbody>
         </Table>
-
+        <h1 align="center">
+        <Button variant="warning" onClick={()=>{navigate("/checkout")}}>CheckOut</Button>
+            </h1>
+            </div>
         </>
     )
 }

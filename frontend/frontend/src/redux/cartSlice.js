@@ -34,15 +34,13 @@ const cartSlice=createSlice({
              
                 let items= state.cart.find(e=>e.id==actions.payload.id)
 
-                if(!items){
-                    return
+                if(items.qnty<=1){
+                    alert('not to be less than zero')
+                }else{
+                     items.qnty--
                 }
 
-                if(items.length>1){
-                    items.qnty--
-                } else{
-                    state.cart=state.cart.filter(e=>e.id!==actions.payload.id)
-                }
+            
           },
           productRemove:(state,actions)=>{
                  

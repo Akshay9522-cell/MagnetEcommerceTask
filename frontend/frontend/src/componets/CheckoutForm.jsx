@@ -84,10 +84,10 @@ const CheckoutForm = () => {
 
     <form
   onSubmit={handleSubmit}
-  className="max-w-6xl mx-auto p-6 bg-white shadow-md rounded-lg flex flex-col lg:flex-row gap-8"
+  className="max-w-6xl mx-auto mt-20 p-6 bg-white shadow-md rounded-lg flex flex-col lg:flex-row gap-8"
 >
-  {/* Customer Info */}
-  <div className="flex-1 space-y-6">
+
+  <div className="flex-1 space-y-6 ">
     <h2 className="text-2xl font-semibold mb-4">Customer Information</h2>
 
     <div>
